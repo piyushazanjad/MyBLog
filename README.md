@@ -1,21 +1,32 @@
 # MyBLog
 
-Developed an application using AngularJS, ExpressJS and MongoDB for booking movie tickets by selecting movie theater and show timings. Also adding, deleting and updating movies is managed.
-This website is aimed to provide customers the facility to book the movie tickets online. Customers will be able to get all the information about current movies including rating, summary and category. They can choose the theatre and show timings of their choice and also can select the total numbers of seats. After selecting the number of seats, total price for the tickets is displayed on the screen. For payment, the website will be redirected to PayPal where users can buy the tickets.
+The project includes functionalities like signup, sign in, post blogs and view blogs. Users can register for the website by providing their details. While signup he gives username and password of his choice. Using the username and password, user can login into the website. After logging in, users can post a blog. Users can also see all the blogs posted by other users.
 
-Steps for installation and running the website:
- Download and install mongodb from https://www.mongodb.org/
- Make a directory for the project.
- Create a folder named “mydb” in the project folder.
- Start the database by typing the following query in command prompt:
-mongod –dbpath mydb
- Download and install node.js from https://nodejs.org/
- Install express server by typing the following command:
- “npm install express”.
- Include package.json file in project directory.
-After this, run the following command:
-“npm install” for installing all the node modules.
- Run node server using the following command(for running server.js file):
-“node server.js”.
- Run the website using the following url (for running index.html):
-http://localhost:3000/
+#SETUP INSTRUCTIONS
+1. Download and unzip the project on your local drive.
+2. Download MySQL from http://dev.mysql.com/downloads/installer/
+3. Got to MySQL Workbench, create a new connection in which username is “root” and password is “piyu”.
+4. Create a schema named “blogs”.
+5. Run the sql query “use blogs;”
+6. Inside the schema “blogs” create two tables named “blog” and “user”.
+7. Create table “blog” using following query:
+CREATE TABLE `blogs`.`blog` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`author` VARCHAR(45) NULL,
+`blog` VARCHAR(1000) NULL,
+`created` VARCHAR(45) NULL,
+PRIMARY KEY (`id`));
+8. Create table user using following query:
+CREATE TABLE `blogs`.`user` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`fname` VARCHAR(45) NULL,
+`lname` VARCHAR(45) NULL,
+`username` VARCHAR(45) NULL,
+`password` VARCHAR(45) NULL,
+PRIMARY KEY (`id`));
+9. A command.sql file is also attached with the project.
+10. In the command prompt of the project folder type: mvn clean .
+11. Run the mvn package this will create a war in the target subdirectory of the project.
+12. Start the tomcat server by Startup.bat command.
+13. Deploy the war file to the tomcat manager or copy the war file in the webapps folder of tomcat.
+14. Go to this url => http://localhost:8081/blog/ (if your server runs on port 8080, do http://localhost:8080/blog/).
